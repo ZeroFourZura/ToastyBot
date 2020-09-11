@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 
-# import Cluster
+import Cluster
 
 
 class Com(commands.Cog):
@@ -22,7 +22,7 @@ class Com(commands.Cog):
     async def test(self, ctx):
         await ctx.send("Yo!")
 
-    Score command
+    #Score command
     @commands.command()
     async def score(self, ctx):
         score=Cluster.collection.find_one({"_id": ctx.author.id})

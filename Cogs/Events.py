@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 
-# import Cluster
+import Cluster
 
 class Events(commands.Cog):
 

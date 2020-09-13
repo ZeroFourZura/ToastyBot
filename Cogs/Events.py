@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 from dotenv import load_dotenv
+import random
 
 import Cluster
 
@@ -37,10 +38,13 @@ class Events(commands.Cog):
 
         for i in SimpDictionary:
             if i in str(ctx.content.lower()):
-                await ctx.channel.send("simp!")
+                if Randomise():
+                    await ctx.channel.send("Get a load of this simp!")
+                break
 
         if "money" in str(ctx.content.lower()):
-            await ctx.channel.send("here! take some coins you pityful creature")
+            if Randomise():
+                await ctx.channel.send("here! take some coins you pityful creature")
 
         if (Cluster.collection.count_documents(myquery) == 0):
             if "crispy" in str(ctx.content.lower()):
@@ -60,3 +64,11 @@ class Events(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Events(bot))
+
+def Randomise():
+    Number = random.randint(1, 3)
+
+    if Number == 1:
+        return 1
+    else:
+        return 0

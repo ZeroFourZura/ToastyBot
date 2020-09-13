@@ -35,10 +35,16 @@ class Events(commands.Cog):
 
         for i in SimpDictionary:
             if i in str(ctx.content.lower()):
-                await ctx.channel.send("simp!")
+                if Randomise(3):
+                    if Randomise(2):
+                        await ctx.channel.send("Get a load of this simp!")
+                    else:
+                        await ctx.channel.send("Simp!")
+                break
 
         if "money" in str(ctx.content.lower()):
-            await ctx.channel.send("here! take some coins you pityful creature")
+            if Randomise(2):
+                await ctx.channel.send("here! take some coins you pityful creature")
 
 
 
@@ -49,8 +55,8 @@ def setup(bot):
 def setup(bot):
     bot.add_cog(Events(bot))
 
-def Randomise():
-    Number = random.randint(1, 3)
+def Randomise(Boundary):
+    Number = random.randint(1, Boundary)
 
     if Number == 1:
         return 1

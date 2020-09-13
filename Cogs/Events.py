@@ -45,3 +45,14 @@ class Events(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Events(bot))
+
+def setup(bot):
+    bot.add_cog(Events(bot))
+
+def Randomise():
+    Number = random.randint(1, 3)
+
+    if Number == 1:
+        return 1
+    else:
+        return 0

@@ -5,6 +5,18 @@ from dotenv import load_dotenv
 
 import Cluster
 
+SimpDictionary = ["belle",
+"delphine",
+"donate",
+"donated",
+"donation",
+"subcribe",
+"subscribed",
+"pokimane",
+"alinity",
+"holo",
+"hololive"]
+
 class Events(commands.Cog):
 
     def __init__(self, bot):
@@ -23,8 +35,9 @@ class Events(commands.Cog):
         # if ctx.author==self.bot.user:
         #     await self.bot.process_commands(self, ctx)
 
-        if "stream" in str(ctx.content.lower()):
-            await ctx.channel.send("simp!")
+        for i in SimpDictionary:
+            if i in str(ctx.content.lower()):
+                await ctx.channel.send("simp!")
 
         if "money" in str(ctx.content.lower()):
             await ctx.channel.send("here! take some coins you pityful creature")

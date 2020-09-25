@@ -16,7 +16,9 @@ simpDictionary = ["belle",
 "pokimane",
 "alinity",
 "holo",
-"hololive"]
+"hololive",
+"stream",
+"streamer"]
 
 class Events(commands.Cog):
 
@@ -45,7 +47,7 @@ class Events(commands.Cog):
                     simpFlag = 1
 
         if simpFlag == 1:
-            if randomise(4):
+            # if randomise(4):
                 if randomise(2):
                     await ctx.channel.send("simp")
                 else:

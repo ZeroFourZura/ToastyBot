@@ -6,7 +6,7 @@ import random
 
 import Cluster
 
-SimpDictionary = ["belle",
+simpDictionary = ["belle",
 "delphine",
 "donate",
 "donated",
@@ -36,14 +36,25 @@ class Events(commands.Cog):
         # if ctx.author==self.bot.user:
         #     await self.bot.process_commands(self, ctx)
 
-        for i in SimpDictionary:
-            if i in str(ctx.content.lower()):
-                if Randomise():
-                    await ctx.channel.send("Get a load of this simp!")
-                break
+        sentence = (ctx.content.lower())
+        simpFlag = 0
+        sentence = sentence.split(' ')
+        for i in range(0, len(sentence)):
+            for j in range(0, len(simpDictionary)):
+                if(sentence[i] == simpDictionary[j]):
+                    simpFlag = 1
+
+        if simpFlag == 1:
+            if randomise(4):
+                if randomise(2):
+                    await ctx.channel.send("simp")
+                else:
+                    await ctx.channel.send("get a load of this simp!")
+
+
 
         if "money" in str(ctx.content.lower()):
-            if Randomise():
+            if randomise(4):
                 await ctx.channel.send("here! take some coins you pityful creature")
 
         if (Cluster.collection.count_documents(myquery) == 0):
@@ -65,8 +76,8 @@ class Events(commands.Cog):
 def setup(bot):
     bot.add_cog(Events(bot))
 
-def Randomise():
-    Number = random.randint(1, 3)
+def randomise(boundary):
+    Number = random.randint(1, boundary)
 
     if Number == 1:
         return 1
